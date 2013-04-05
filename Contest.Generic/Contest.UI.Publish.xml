@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="https://184.72.237.225:8172/MsDeploy.axd" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="theshirtoff" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="True" msdeploySkipExtraFilesOnServer="False" msdeployMarkAsApp="False" profileName="Amazon" publishMethod="MSDeploy" replaceMatchingFiles="True" userName="DeployAdmin" savePWD="True" userPWD="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAATQr3RcGsfEOH5Sh4n9qgegAAAAACAAAAAAAQZgAAAAEAACAAAAArw1AAO25gmU+8u8pZHesYMJ7xA+osrKLfTe/RH5muGQAAAAAOgAAAAAIAACAAAADNu9Sv3eF6l6JGTdHEW6o2dxIE3f/I8+wMjGg9IFN67yAAAAAakJR96NW3hBtvmVkCAvw065EbQ/JxLliTSRanMaLoqEAAAAAL3LayvGOqWpSgChdvEmNZv9oxv/exw936bvYjIGBz4GUPwyVQ/bF++biNvbLliDc8BeF2YsdTyb6/d0u0vWth" SelectedForPublish="True" />
+</publishData>

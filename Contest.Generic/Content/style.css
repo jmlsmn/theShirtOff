@@ -1,0 +1,258 @@
+html, body, div, a, a:visited, a:hover, a:active, ul, ol, li, h1, h2, h3 ,h4, h5, h6, img, p, form, input, textarea, hr, dl,dt,dd {border:0; font-weight:normal; list-style:none; margin:0; padding:0; text-decoration:none; }
+
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section { display:block; }
+
+/* Typography */
+@font-face {
+    font-family: 'Marvel';
+    src: url('fonts/marvel-regular-webfont.eot');
+    src: url('fonts/marvel-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/marvel-regular-webfont.woff') format('woff'),
+         url('fonts/marvel-regular-webfont.ttf') format('truetype'),
+         url('fonts/marvel-regular-webfont.svg#Marvel') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MarvelBold';
+    src: url('fonts/marvel-bold-webfont.eot');
+    src: url('fonts/marvel-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/marvel-bold-webfont.woff') format('woff'),
+         url('fonts/marvel-bold-webfont.ttf') format('truetype'),
+         url('fonts/marvel-bold-webfont.svg#MarvelBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MarvelBoldItalic';
+    src: url('fonts/marvel-bolditalic-webfont.eot');
+    src: url('fonts/marvel-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/marvel-bolditalic-webfont.woff') format('woff'),
+         url('fonts/marvel-bolditalic-webfont.ttf') format('truetype'),
+         url('fonts/marvel-bolditalic-webfont.svg#MarvelBoldItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MarvelItalic';
+    src: url('fonts/marvel-italic-webfont.eot');
+    src: url('fonts/marvel-italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/marvel-italic-webfont.woff') format('woff'),
+         url('fonts/marvel-italic-webfont.ttf') format('truetype'),
+         url('fonts/marvel-italic-webfont.svg#MarvelItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Kreon';
+    src: url('fonts/kreon-regular-webfont.eot');
+    src: url('fonts/kreon-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/kreon-regular-webfont.woff') format('woff'),
+         url('fonts/kreon-regular-webfont.ttf') format('truetype'),
+         url('fonts/kreon-regular-webfont.svg#Kreon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'KreonBold';
+    src: url('fonts/kreon-bold-webfont.eot');
+    src: url('fonts/kreon-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/kreon-bold-webfont.woff') format('woff'),
+         url('fonts/kreon-bold-webfont.ttf') format('truetype'),
+         url('fonts/kreon-bold-webfont.svg#KreonBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'KreonLight';
+    src: url('fonts/kreon-light-webfont.eot');
+    src: url('fonts/kreon-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/kreon-light-webfont.woff') format('woff'),
+         url('fonts/kreon-light-webfont.ttf') format('truetype'),
+         url('fonts/kreon-light-webfont.svg#KreonLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* General Styling */
+body {background:url(images/bg.jpg) repeat; border-top:3px solid #278f86; color:#878787; font:13px/20px Arial, Helvetica, sans-serif;}
+
+.contentWrap {margin:0 auto; overflow:hidden; width:940px;}
+.left {float:left;}
+.right{float:right;}
+.clear {clear:both;}
+
+a {color:#abc8c5;
+	-webkit-transition:all 400ms linear;
+	-o-transition:all 400ms linear;
+	-moz-transition:all 400ms linear;
+	transition:all 400ms linear;}
+	a:hover {color:#278f86;}
+	
+a.moreLink {display:block; font:15px Marvel, 'Century Gothic', Verdana, sans-serif; text-align:right;}
+
+h1, h1 a {color:#b06a6b; font:18px Kreon, Georgia, serif; text-transform:uppercase;}
+	h1 a:hover {border-bottom:1px dotted #19645d; color:#19645d;}
+h2 {color:#19645d; font:18px Marvel, 'Century Gothic', Verdana, sans-serif; text-transform:uppercase;}
+h3, h3 a {color:#d08e8f; font:17px Marvel, 'Century Gothic', Verdana, sans-serif;}
+	h3 a:hover {border-bottom:1px dotted #b06a6b; color:#b06a6b;}
+h4, h4 a {color:#d08e8f; font:14px KreonLight, Georgia, serif;}
+	h4 a:hover {border-bottom:1px dotted #b06a6b; color:#b06a6b;}
+h5 {}
+h6 {}
+
+
+/* Header */
+#pageHeader {height:154px; margin-bottom:14px; width:100%;}
+
+	#topBar {float:right; font:14px Marvel, 'Century Gothic', Verdana, sans-serif; padding:4px 0 12px;}
+		#topBar li {float:left;}
+		#topBar li a {border-bottom:1px dotted #abc8c5; float:left;}
+			#topBar li a:hover {border-bottom:none; margin-top:-2px;}
+			
+		#topBar #userCart a {background:url(images/graphics.png) no-repeat; margin-right:19px; padding-left:18px;
+							-webkit-transition:color 400ms linear, margin-top 400ms linear, border-bottom 400ms linear;
+							-o-transition:color 400ms linear, margin-top 400ms linear, border-bottom 400ms linear;
+							-moz-transition:color 400ms linear, margin-top 400ms linear, border-bottom 400ms linear;
+							transition:color 400ms linear, margin-top 400ms linear, border-bottom 400ms linear;}
+			#topBar #userCart.noItems a {background-position:0 1px; color:#abc8c5;}
+			#topBar #userCart.withItems a {background-position:0 -19px; color:#278f86;}
+			#topBar #userCart a:hover {background-position:0 -39px; color:#276d66;}
+		
+		#topBar #login a, #topBar #signUp a {text-shadow:1px 0 1px #FFF; text-transform:uppercase;}
+		#topBar #login a {color:#278f86; margin-right:7px; }
+		#topBar #login:after {color:#abc8c5; content:'•';}
+		#topBar #signUp a {color:#278f86; margin-left:6px; text-transform:uppercase;}
+		
+		#topBar #myAccount a, #topBar #logout a {text-shadow:1px 0 1px #FFF; text-transform:uppercase;}
+		#topBar #myAccount a {color:#278f86; margin-right:7px; }
+		#topBar #myAccount:after {color:#abc8c5; content:'•';}
+		#topBar #logout a {color:#278f86; margin-left:6px; text-transform:uppercase;}
+		
+		#topBar #userCart a:hover, #topBar #login a:hover, #topBar #signUp a:hover, #topBar #myAccount a:hover, #topBar #logout a:hover {color:#276d66;}
+		
+	
+	#pageLogo {display:block; float:left; margin-top:31px;}
+	
+	#pageHeader nav {float:right; margin-top:49px;}
+		#pageHeader nav a {background:url(images/graphics.png) no-repeat right 19px; color:#b06a6b; display:inline-block; font:20px Marvel, 'Century Gothic', Verdana, sans-serif; padding:0 18px 0 10px; text-align:center; text-shadow:1px 0 1px #FFF;}
+			#pageHeader nav a:last-child {background:none; padding:0 0 0 9px;}
+			#pageHeader nav a span {clear:both; color:#d08e8f; display:block; font:14px KreonLight, Georgia, serif;}
+			#pageHeader nav a:hover {color:#19645d;}
+				#pageHeader nav a:hover span {border-bottom:1px dotted #abc8c5; color:#278f86;}
+			
+
+/* Contest Banner */
+#contestBanner {clear:both; margin-bottom:40px;}
+	#contestBanner h1 {background:url(images/graphics.png) 0 -344px no-repeat; color:#abc8c5; font-family:KreonBold, Georgia, serif; text-align:center; text-shadow:1px 0 1px #FFF;}
+	#contestBanner img {border-bottom:1px solid #abc8c5; margin-top:5px;
+						-moz-box-shadow: 0 5px 10px #cfd1d1;
+						box-shadow: 0 5px 10px #cfd1d1;}
+
+
+/* Content */				
+#mainContent {float:left; width:700px;}
+	.homepage ul {border-bottom:1px solid #e1cece; float:left; margin:5px 0 6px; padding-bottom:6px; }
+		.homepage ul:last-child {border-bottom:none;}
+		.homepage li {float:left; margin-right:20px;}
+			.homepage li:last-child {margin-right:0;}
+			.homepage li a[rel=itemLink] {border:5px solid #278f86; display:block; width:210px;
+											-moz-box-shadow: 0 5px 10px #cfd1d1;
+											box-shadow: 0 5px 10px #cfd1d1;}
+				.homepage li a[rel=itemLink]:hover {border-color:#19645d;}
+			.homepage li h1 {margin-top: 6px; text-align:center;}
+			.homepage li p {line-height:17px; margin-top:7px; text-align:center;}
+	.homepage h3 {margin-bottom: 46px; text-align:right;}
+	
+	#featuredDesigns a[rel=itemLink] {height:180px;}
+	#latestDesigns a[rel=itemLink] {height:105px;}
+	#connect a[rel=itemLink] {height:60px;}
+
+/* Sidebar */
+#sideContent {float:right; width:220px;}
+	#sideContent section {border-bottom:1px solid #e1cece; margin-bottom:72px;}
+		#sideContent section:last-child {border-bottom:none; margin-bottom:0;}
+
+	#shopCart h1 {background:url(images/graphics.png) no-repeat 0 -190px; margin:12px 0 17px; padding-left:33px;}
+	#shopCart p {line-height:17px; padding-bottom:13px;}
+	a#shopButton {display:block; margin:7px 0 4px;}
+		a#shopButton:hover { opacity:0.7;}
+		
+	#blogPreview {padding-bottom:7px;}
+		#blogPreview h1 {margin-top:6px;}
+		#blogPreview h4 {margin:-3px 0 6px;}
+		#blogPreview p {margin-bottom:3px;}
+		
+	/* Newsletter */
+	#newsletter p {line-height:17px; margin:7px 0 4px;}		
+	
+	#newsletter input[type=text], #newsletter input[type=submit] {float:left; height:30px;}
+	#newsletter input[type=text] {background:#abc8c5; color:#e1efee; font:italic 12px Arial, Helvetica, sans-serif; padding: 0 5px; width:170px;
+			-webkit-transition:all 400ms linear;
+			-o-transition:all 400ms linear;
+			-moz-transition:all 400ms linear;
+			transition:all 400ms linear;}
+		#newsletter input[type=text]:hover, #newsletter input[type=text]:focus {background:#278f86; outline:none;}
+	#newsletter input[type=submit] {background:#f2b0b1; color:#f4d1d1; font:18px Kreon, Georgia, serif; text-shadow:1px 0 1px #d08e8f; text-transform:uppercase; width:40px;
+									-webkit-transition:all 400ms linear;
+									-o-transition:all 400ms linear;
+									-moz-transition:all 400ms linear;
+									transition:all 400ms linear;}
+			#newsletter input[type=submit]:hover {background:#d08e8f; color:#b06a6b; cursor:pointer; text-shadow:1px 0 1px #dbaaab;}
+
+
+/* Footer */			
+#pageFooter {background:#878787; color:#d08e8f; font: 14px/21px Kreon, Georgia, serif; margin-top:38px; overflow:hidden; padding-top:15px; text-shadow:1px 0 1px #a16667; text-transform: uppercase; width:100%;}
+	#pageFooter p {background:url(images/graphics.png) no-repeat 1px -254px; padding:0 0 12px 58px;}
+	#pageFooter nav {text-align:right;}
+	#pageFooter a {color:#f5cfd0; text-shadow:1px 0 1px #a16667;}
+		#pageFooter a:hover {color:#abc8c5; text-shadow:1px 0 1px #19645d;}
+		
+/* Lightwindow */
+.popup_block {background:url(images/bg.jpg) repeat; border:5px solid #278f86; display:none; float:left; left:50%; padding:17px 20px 20px; position:fixed; top:50%; z-index:9999;}
+	.popup_block a.close {background: url(images/graphics.png) -267px 0 no-repeat; cursor: pointer; display: block; height: 33px; left:0; position: absolute; top:-38px; width: 51px;}
+		.popup_block a.close:hover {opacity:0.7;}
+
+#fade {background: #CCCCCC; display: none; height:100%; left: 0; opacity:.80; position: fixed; top: 0; width: 100%; z-index: 9998;}
+
+/* Login & Sign Up Form */
+    #lblError {display:none; color:#ff0000; font:14px Marvel, 'Century Gothic', Verdana, sans-serif;}
+	.forms h1 {padding-bottom:3px;}
+	.forms label, .forms input {clear:both; float:left;}
+	.forms label {color:#278f86; font:18px Marvel, 'Century Gothic', Verdana, sans-serif; padding:14px 0 2px;}
+	.forms input[type=email] {background:#abc8c5; color:#E1EFEE; font:italic 12px Arial, Helvetica, sans-serif; height:30px; padding:0 5px; width:240px;
+								-webkit-transition:all 400ms linear;
+								-o-transition:all 400ms linear;
+								-moz-transition:all 400ms linear;
+								transition:all 400ms linear;}
+	.forms input[type=password] {background:#abc8c5; color:#E1EFEE; font:italic 12px Arial, Helvetica, sans-serif; height:30px; padding:0 5px; width:240px;
+	                            -webkit-transition:all 400ms linear;
+	                            -o-transition:all 400ms linear;
+	                            -moz-transition:all 400ms linear;
+	                            transition:all 400ms linear;}
+		.forms input[type=email]:hover, .forms input[type=email]:focus {background:#278f86; outline:none;}
+		.forms input[type=password]:hover, .forms input[type=password]:focus {background:#278f86; outline:none;}
+	.forms input[type=checkbox] {clear:left; color:#278f86; font:18px Marvel, 'Century Gothic', Verdana, sans-serif;}
+	.forms a {font:16px Marvel, 'Century Gothic', Verdana, sans-serif;}
+	.forms input[type=submit] {background:#f2b0b1; color:#f4d1d1; font:18px Kreon, Georgia, serif; height:30px; margin:18px 0 17px; text-shadow:1px 0 1px #d08e8f; text-transform:uppercase; width:250px;
+									-webkit-transition:all 400ms linear;
+									-o-transition:all 400ms linear;
+									-moz-transition:all 400ms linear;
+									transition:all 400ms linear;}
+		.forms input[type=submit]:hover {background:#d08e8f; color:#b06a6b; cursor:pointer; text-shadow:1px 0 1px #dbaaab;}
+				
+
+/* Costum Checkbox */
+	label.checkbox span.holder {height: 9px; background: url(images/graphics.png) 0 -62px no-repeat;}
+	label.checked span.holder { background-position:0 -72px; }
+
+	label.list {padding-top:6px;}
+		input.hiddenCheckbox {position:absolute; left:-10000px;}
+		label.prettyCheckbox span.holderWrap {float:left; margin-right: 8px; position:relative;}
+		label.prettyCheckbox span.holder {position:absolute; margin-top:8px; left:0;}

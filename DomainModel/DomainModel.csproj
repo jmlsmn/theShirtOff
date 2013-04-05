@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D26BD758-DACA-4E80-80D1-7ED64E59A11E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DomainModel</RootNamespace>
+    <AssemblyName>DomainModel</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PetaPoco">
+      <HintPath>..\Libraries\PetaPoco.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\Entities\IEmailActivation.cs" />
+    <Compile Include="Abstract\Entities\IProductAttributeCategory.cs" />
+    <Compile Include="Abstract\Repositories\IAccountRepository.cs" />
+    <Compile Include="Abstract\Repositories\IContestRepository.cs" />
+    <Compile Include="Abstract\Repositories\IImageRepository.cs" />
+    <Compile Include="Abstract\Repositories\IOrderRepository.cs" />
+    <Compile Include="Abstract\Repositories\IPaymentRepository.cs" />
+    <Compile Include="Abstract\Repositories\IProductRepository.cs" />
+    <Compile Include="Abstract\Repositories\ISubmissionRepository.cs" />
+    <Compile Include="Abstract\Repositories\IThemeRepository.cs" />
+    <Compile Include="Abstract\Services\IContestService.cs" />
+    <Compile Include="Abstract\Services\IAccountService.cs" />
+    <Compile Include="Abstract\Services\IAdminService.cs" />
+    <Compile Include="Abstract\Services\ISubmissionService.cs" />
+    <Compile Include="Concrete\DataObjects\Account.cs" />
+    <Compile Include="Concrete\DataObjects\EmailActivation.cs" />
+    <Compile Include="Concrete\DataObjects\ProductAttributeCategory.cs" />
+    <Compile Include="Concrete\DataObjects\Contest.cs" />
+    <Compile Include="Concrete\DataObjects\Image.cs" />
+    <Compile Include="Concrete\DataObjects\Order.cs" />
+    <Compile Include="Concrete\DataObjects\OrderItem.cs" />
+    <Compile Include="Concrete\DataObjects\Payment.cs" />
+    <Compile Include="Concrete\DataObjects\Product.cs" />
+    <Compile Include="Concrete\DataObjects\ProductAttribute.cs" />
+    <Compile Include="Concrete\DataObjects\Submission.cs" />
+    <Compile Include="Concrete\DataObjects\Theme.cs" />
+    <Compile Include="Concrete\DataObjects\Vote.cs" />
+    <Compile Include="Concrete\Enums\UserRank.cs" />
+    <Compile Include="Concrete\Exceptions\DuplicateSubmissionException.cs" />
+    <Compile Include="Concrete\Extensions\InterfaceTypeConverterExtension.cs" />
+    <Compile Include="Concrete\Helpers\Email\Email.cs" />
+    <Compile Include="Concrete\Helpers\Email\EmailData.cs" />
+    <Compile Include="Concrete\Helpers\Encryption.cs" />
+    <Compile Include="Concrete\Repositories\AccountRepository.cs" />
+    <Compile Include="Concrete\Repositories\ContestRepository.cs" />
+    <Compile Include="Concrete\Repositories\ImageRepository.cs" />
+    <Compile Include="Concrete\Repositories\SubmissionRepository.cs" />
+    <Compile Include="Abstract\Entities\IAccount.cs" />
+    <Compile Include="Abstract\Entities\IContest.cs" />
+    <Compile Include="Abstract\Entities\IImage.cs" />
+    <Compile Include="Abstract\Entities\IOrder.cs" />
+    <Compile Include="Abstract\Entities\IOrderItem.cs" />
+    <Compile Include="Concrete\Enums\OrderStatus.cs" />
+    <Compile Include="Abstract\Entities\IPayment.cs" />
+    <Compile Include="Concrete\Enums\PaymentType.cs" />
+    <Compile Include="Abstract\Entities\IProduct.cs" />
+    <Compile Include="Abstract\Entities\IProductAttribute.cs" />
+    <Compile Include="Concrete\Enums\ProductType.cs" />
+    <Compile Include="Abstract\Entities\ISubmission.cs" />
+    <Compile Include="Concrete\Enums\SubmissionType.cs" />
+    <Compile Include="Abstract\Entities\ITheme.cs" />
+    <Compile Include="Abstract\Entities\IVote.cs" />
+    <Compile Include="Concrete\Services\ContestService.cs" />
+    <Compile Include="Concrete\Services\AccountService.cs" />
+    <Compile Include="Concrete\Services\SubmissionService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Submit";
+}
+
+<h2>Submit</h2>
+
+@{Html.BeginForm("Save", "Submissions", FormMethod.Post,
+                  new { enctype = "multipart/form-data" });}
+
+<label for="Title">Title:</label><input type="text" name="Title" id="Title" />
+<br />
+<br />
+<label for="Description">Description:</label><textarea name="Description" id="Description" rows="10" cols="10"></textarea>
+<br />
+<br />
+<label for="SubmissionType">Type:</label>@Html.DropDownList("SubmissionType",DomainModel.Concrete.Enums.SubmissionType.Front.ToSelectList())
+<br />
+<br />
+<label for="image">Choose an image to upload:</label><input name="image"  id="image"  type="file" />
+<br />
+<br />
+<input type="submit" value="Submit" />
+@{Html.EndForm();}
+
+
+

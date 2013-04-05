@@ -1,0 +1,16 @@
+﻿.submission_grid {
+	list-style-type: none;
+	width: 438px;
+	font-size: 1.2em;
+	padding: 0;
+}
+
+.submission_grid li {
+	display: block;
+	float: left;
+	margin: 0 10px 10px 0;
+	width: 130px;
+	border: 1px dashed #000;
+	padding: 2px;
+	text-align: center;
+}

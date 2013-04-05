@@ -1,0 +1,15 @@
+﻿@*jquery to capture click event *@
+<script type="text/javascript">
+
+$(function () {
+
+        $('#btnSubmitEmail').click(function () {
+            $.post('@Url.Action("ChangeEmail","Account")', { newEmail: $('#txtNewEmail').val() });
+        });
+
+    });
+</script>
+
+Enter a new Email Address: @Html.TextBox("txtNewEmail")
+Confirm new Email Address: @Html.TextBox("txtConfirmNewEmail")
+<input id="btnSubmitEmail" type="button" />

@@ -1,0 +1,79 @@
+﻿
+<script type="text/javascript">
+
+    $(function () {
+        $('#signinform').submit(function (e) {
+            var account =
+            $.post($(this).attr("action"),
+                        {Email: $('#txtEmail').val(),
+                         Password: $('#txtPassword').val()},
+                        SignInResult);
+            e.preventDefault();
+        });
+
+        $('#lnkSignOut').click(function () {
+            $.post('@Url.Action("SignOut","Account")');
+        });
+    });
+
+    function FBSignIn()
+    {
+       if (FB.getSession() != null) {
+         FB.api('/me', function(user) {
+
+             $.post('@Url.Action("SignIn","Account")', { Token: user.id }, SignInResult);
+         });
+       }
+    }
+
+    function SignInResult(data)
+    {
+        if (data == true) {
+            RefreshAccountControl();
+            alert('Logged in');
+        }
+        else {
+            alert('Failed');
+        }
+    }
+
+    function RefreshAccountControl() 
+    {
+        $.get('@Url.Action("SignInView","Account")',
+            function (partialHtml) {
+                $('#logindisplay').html(partialHtml)
+            });
+            
+    }
+
+</script>
+
+@if(!User.Identity.IsAuthenticated) {
+<div id="signin">
+    @{Html.BeginForm("SignIn", "Account", FormMethod.Post, new {id = "signinform"});}
+    <fieldset>
+    <legend>Sign In</legend>
+        <br />
+        @Html.Label("txtEmail", "Email:")
+        <br />
+        @Html.TextBox("txtEmail")
+        <br />
+        <br />
+        @Html.Label("txtPassword","Password:")
+        <br />
+        @Html.Password("txtPassword")
+        <br />
+        <input type="submit" value="Sign In" />
+    </fieldset>
+    @{Html.EndForm();}
+    |
+    <fb:login-button id="btnfb" onlogin="FBVote();">  </fb:login-button>
+    |
+    @Html.ActionLink("Register","Register","Account")
+</div>
+} 
+else { 
+<div id="signout">  
+Hello @User.Identity.Name [@Html.ActionLink("Sign Out","SignOut","Account",null, new { id = "lnkSignOut" })] [@Html.ActionLink("My Account","MyAccount","Account",null, new { id = "lnkSignOut" })]
+</div>
+}

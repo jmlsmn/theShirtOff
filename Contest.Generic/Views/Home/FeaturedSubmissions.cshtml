@@ -1,0 +1,33 @@
+﻿@model IEnumerable<DomainModel.Abstract.Entities.ISubmission>
+
+<h2>Featured Designs</h2>
+<ul id="featuredDesigns">
+@foreach (Contest.Generic.Models.SubmissionModel submission in Model)   
+{
+    <li>
+		<a href="@Url.Action("Submission","Submissions", new { submissionID = submission.SubmissionID })" rel="itemLink">
+            @if (@submission.SubmissionImages.FirstOrDefault() != null)
+            {
+                <img src="@submission.SubmissionImages.FirstOrDefault().ImageThumbnailLocation" alt="featured designs" />
+            }
+            else
+            {
+                <img src="@Url.Action("../Content/images/default-featured.jpg")" alt="featured designs" />
+            }
+        </a>
+		<h1>
+            <a href="@Url.Action("Submission","Submissions", new { submissionID = submission.SubmissionID })">@submission.Title</a>
+        </h1>
+		<p>submitted by <a href="#">@submission.DisplayName</a><br/></p>
+	</li>
+}
+</ul>
+<h3><a href="#">browse the shop</a></h3>
+
+
+			
+		
+		
+
+
+

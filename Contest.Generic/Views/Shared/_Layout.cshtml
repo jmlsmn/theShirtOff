@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>The Shirt Off</title>
+    <meta charset="UTF-8" />
+	<meta name="description" content="" />
+	<link rel="shortcut icon" href="@Url.Content("../favicon.ico")" />
+    <link href="@Url.Content("../Content/style.css")" rel="stylesheet" type="text/css" media="all" />
+    <link href="@Url.Content("../Content/Submissions.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("../Content/galleriffic/galleriffic-2.css")" rel="stylesheet" type="text/css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="@Url.Content("../Scripts/prettyCheckboxes.js")" type="text/javascript"></script>
+	<script src="@Url.Content("../Scripts/scripts.js")" type="text/javascript"></script>
+    <script src="@Url.Content("../Scripts/jquery.galleriffic.js")" type="text/javascript"></script>
+	<script src="@Url.Content("../Scripts/jquery.opacityrollover.js")" type="text/javascript"></script>
+
+	<!--[if (gte IE 6)&(lte IE 9)]>
+    <script src="@Url.Content("../Scripts/selectivizr.js")" type="text/javascript"></script> 
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->	
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#loginForm').submit(function () {
+                $.post('@Url.Action("LogOn", "Account")', $(this).serialize(), LogOnResult);
+                return false;
+            });
+        });
+
+        function FBSignIn() {
+            FB.getLoginStatus(function (response) {
+                if (response.status == 'connected') {
+                    FB.api('/me', function (user) {
+                        $.post('@Url.Action("LogOn","Account")', { Token: user.id, DisplayName: user.username, Email: user.email }, LogOnResult);
+                    });
+                }
+            });
+        }
+
+        function LogOnResult (data) {
+            if (data.success) {
+                window.location = '@Url.Action("Index","Home")';
+            }
+            else {
+                $('#lblError').text(data.message);
+                $('#lblError').slideDown();
+            }
+        }
+
+        function clearLoginForm()
+        {
+            $("#lblError").hide();
+            $("#Email").val('');
+            $("#Password").val('');
+            $('#RememberMe').val('false');
+            $("#lblRememberMe").removeClass('checked');
+        }
+    </script>
+</head>
+
+<body>
+@*
+Facebook integration
+*@
+<div id="fb-root"></div>
+<script type="text/javascript">
+    window.fbAsyncInit = function () {
+        FB.init({ appId: '@System.Configuration.ConfigurationManager.AppSettings["FacebookAppId"]',
+            status: true,
+            cookie: true,
+            xfbml: true,
+            oauth: true
+        });
+    };
+
+    (function (d) {
+        var js, id = 'facebook-jssdk'; if (d.getElementById(id)) { return; }
+        js = d.createElement('script'); js.id = id; js.async = true;
+        js.src = "//connect.facebook.net/en_US/all.js";
+        d.getElementsByTagName('head')[0].appendChild(js);
+    } (document));
+
+</script>
+
+<div class="contentWrap">
+
+	<header id="pageHeader">
+		<a href="@Url.Action("Index","Home")" id="pageLogo"><img src="@Url.Action("../Content/images/logo.png")" alt="The Shirt Off" /></a>
+		<ul id="topBar">
+			<li id="userCart" class="noItems"><a href="#">0 items on your cart</a></li>
+            @if (!User.Identity.IsAuthenticated)
+            {
+			    <li id="login"><a href="#?w=250" class="poplight" rel="loginForm">Login</a></li>
+			    <li id="signUp"><a href="@Url.Action("Register","Account")">Sign Up</a></li>
+            }
+            else
+            {
+                <li id="myAccount"><a href="@Url.Action("MyAccount","Account")">My Account</a></li>
+                <li id="logout"><a href="@Url.Action("SignOut", "Account")">Logout</a></li>
+            }
+		</ul>
+		
+		<form id="loginForm" class="popup_block forms" action="">
+            <h1>Login in with Facebook</h1>
+            <fb:login-button id="btnfb" onlogin="FBSignIn();" scope="email">Login</fb:login-button>
+            <h3>Or</h3> 
+			<h1>Login to The Shirt Off</h1>
+			<label for="Email">Email</label>
+			<input type="email" id="Email" name="Email" value="" required="required"/>
+			<label for="Password">Password</label>
+			<input type="password" id="Password" name="Password" value="" required="required"/>
+			<a class="right" href="#">Forgot it?</a>
+			<input type="checkbox" name="RememberMe" id="RememberMe" class="hiddenCheckbox" />
+			<label for="RememberMe" id="lblRememberMe" class="prettyCheckbox checkbox">Remember Me?</label>
+			<input type="submit" name="logBtn" value="Login"/>
+			<a href="@Url.Action("Register","Account")" class="left">No account yet? Sign up now!</a>
+            <label id="lblError"></label>
+		</form>
+		
+		<nav>
+			<a href="#">Shop<span>our products</span></a>
+            @if (User.Identity.IsAuthenticated)
+            {
+			    <a href="@Url.Action("Submit", "Submissions")">Submit<span>your work &amp; be a star</span></a>
+            }
+            else
+            {
+                <a href="@Url.Action("HowItWorks", "Submissions")">Submit<span>your work &amp; be a star</span></a>
+            }
+            <a href="#">View Designs<span>pick your favorites</span></a>
+			<a href="#">Blog<span>news &amp; updates</span></a>
+		</nav>
+	</header>
+    @RenderBody()
+</div>
+            
+<footer id="pageFooter">
+	<div class="contentWrap">
+		<p class="left">
+			© The Shirt Off 2012. All designs copyright by owner.<br/>
+			<a href="#">Terms &amp; Conditions</a> •
+			<a href="#">Privacy Policy</a>
+		</p>
+		<nav class="right">
+			<a href="#">Home</a> •
+			<a href="#">Shop</a> •
+			<a href="#">Submit your Design</a> •
+			<a href="#">Blog</a> •
+			<a href="#">About</a><br />
+			<a href="#">Talk to Us!</a>
+		</nav>
+	</div>
+</footer>
+</body>
+</html>

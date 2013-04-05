@@ -1,0 +1,27 @@
+﻿@model IEnumerable<DomainModel.Abstract.Entities.ISubmission>
+
+<h2>Latest Designs</h2>
+<ul id="latestDesigns">
+    @foreach (Contest.Generic.Models.SubmissionModel submission in Model)
+    {
+        <li>
+		    <a href="@Url.Action("Submission", "Submissions", new { submissionID = submission.SubmissionID })" rel="itemLink">
+               @if (@submission.SubmissionImages.FirstOrDefault() != null)
+               {
+                <img src="@submission.SubmissionImages.FirstOrDefault().ImageThumbnailLocation" alt="latest designs" />
+               }
+               else
+               {
+                <img src="@Url.Action("../Content/images/default-latest.jpg")" alt="latest designs" />
+               }
+            </a>
+		    <h1>
+                <a href="@Url.Action("Submission", "Submissions", new { submissionID = submission.SubmissionID })">@submission.Title</a>
+            </h1>
+		    <p>submitted by <a href="#">@submission.DisplayName</a><br/>
+                <strong>@submission.VoteCount</strong> votes
+            </p>
+	    </li>
+    }
+</ul>
+<h3><a href="#">view all submissions</a></h3>

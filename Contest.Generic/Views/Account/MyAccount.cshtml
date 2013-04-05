@@ -1,0 +1,13 @@
+﻿@model Contest.Generic.Models.AccountModel
+           
+@{
+    ViewBag.Title = "MyAccount";
+}
+
+<h2>My Account - @User.Identity.Name</h2>
+
+<div id="accBalance">@Model.Balance.ToMoneyString()</div>
+@*
+Change Email
+Change Password
+*@

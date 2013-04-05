@@ -1,0 +1,95 @@
+﻿@model DomainModel.Abstract.Entities.ISubmission
+
+@{
+    ViewBag.Title = "Submission";
+}
+
+<script type="text/javascript">
+
+    $(function () {
+
+        $('.btnvote').click(function () {
+            $.post('@Url.Action("Vote","Vote")',{submissionID: @Model.SubmissionID}, function (data) {
+                alert('voted!');
+            });
+        });
+    });
+
+    function FBVote()
+    {
+        FB.getLoginStatus(function (response) {
+            if (response.status == 'connected') {
+                FB.api('/me', function (user) {
+                        $.post('@Url.Action("Vote","VoteFB")', {{Token: user.id, DisplayName: user.username, Email: user.email},submissionID: @Model.SubmissionID}, VoteResult);
+                });
+            }
+        });
+    }
+
+    function VoteResult(count)
+    {
+        $('#votecount').html(count);
+        $('#btnfb').attr('onclick', function(){
+            return false;
+        });
+        $('#btnfb').fadeTo('slow',0.4);
+    }
+</script>
+
+<h2>Submission</h2>
+Submission ID: @Model.SubmissionID
+<br />
+<br />
+<!--Image gallery goes here-->
+@{Html.RenderPartial("ImageGallery", Model.SubmissionImages);}
+<br />
+<br />
+Description: <input type="text" value="@Model.Description" />
+<br />
+<br />
+Submission Date: @Model.SubmissionDate
+<br />
+<br />
+Approval Date: @Model.ApprovalDate
+<br />
+<br />
+Submission Type: @Model.SubmissionType
+<br />
+<br />
+Vote Count: <span id="votecount">@Model.VoteCount</span>
+
+
+
+@if (!User.Identity.IsAuthenticated)
+{
+    <div>
+    <fb:login-button id="btnfb" onlogin="FBVote();">Vote with Facebook</fb:login-button>
+    Or Vote with your Shirt Off Account
+    <input type="button" class="btnvote" value="Vote" />
+    </div>
+}
+else
+{
+    <input type="button" class="btnvote" value="Vote" />
+}
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'theshirtoff'; // required: replace example with your forum shortname
+
+    // The following are highly recommended additional parameters. Remove the slashes in front to use.
+    var disqus_identifier = 'submission_' + '@(Model.SubmissionID)';
+    var disqus_url = '@(HttpContext.Current.Request.Url.AbsoluteUri)';
+    var disqus_title = '@(Model.Title)';
+    // TODO get rid of for live
+    var disqus_developer = '@(Convert.ToBoolean(System.Configuration.ConfigurationManager.AppSettings["DisqusDevMode"]) ? 1 : 0)';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>

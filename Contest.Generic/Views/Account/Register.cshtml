@@ -1,0 +1,27 @@
+﻿@model Contest.Generic.Models.AccountModel
+
+@{
+    ViewBag.Title = "Register";
+}
+<script src="@Url.Content("../Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("../Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+
+</script>
+
+
+
+<form id="registrationForm" class="forms" action="">
+    <fieldset>
+        <legend><h2>Join The Shirt Off!</h2></legend>
+        <label for="DisplayName">Display Name</label>
+        <input type="text" id="DisplayName" name="DisplayName" />
+	    <label for="Email">Email</label>
+	    <input type="email" id="Email" name="Email" required="required"/>
+	    <label for="Password">Password</label>
+	    <input type="password" id="Password" name="Password" required="required"/>
+        <label for="ConfirmPassword">Confirm Password</label>
+	    <input type="password" id="ConfirmPassword" name="ConfirmPassword" required="required"/>
+        <input type="submit" value="Sign Up" />
+    </fieldset>
+</form>

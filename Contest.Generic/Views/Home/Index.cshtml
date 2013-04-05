@@ -1,0 +1,14 @@
+﻿@{Html.RenderPartial("ThemeBanner");}
+
+<section id="mainContent" class="homepage">
+    @{Html.RenderAction("FeaturedSubmissions", "Home");}
+
+    @{Html.RenderAction("LatestSubmissions","Home");}
+
+    @{Html.RenderPartial("ConnectWithUs");}
+</section>
+
+@{Html.RenderPartial("SideBar");}
+
+
+
